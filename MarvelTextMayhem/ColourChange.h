@@ -102,5 +102,12 @@ void ColourChange(std::string name)
 
 	}
 
+	if (name == "Magneto")
+	{
+		SetConsoleTextAttribute(h, 13);
+		std::cout << "Magneto";
+		SetConsoleTextAttribute(h, 7);
+
+	}
 
 }

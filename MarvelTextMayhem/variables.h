@@ -33,6 +33,8 @@ int jeanCharge1;
 int jeanCharge2;
 int jeanRelease;
 
+int wolverineWrath;
+
 
 // Cyclops Moves
 
@@ -40,6 +42,7 @@ int opticBlast = 30;
 std::string opticBlastS = "Optic Blast";
 int opticSweep = 25;
 std::string opticSweepS = "Optic Sweep";
+
 // Jean Grey Attacks
 
 int telekenisisThrow = 40;

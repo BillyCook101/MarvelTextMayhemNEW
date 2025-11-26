@@ -21,6 +21,7 @@ std::string deadpool = "Deadpool";
 std::string sentinel = "Sentinel";
 std::string sabretooth = "Sabretooth";
 std::string professor = "Professor";
+std::string magneto = "Magneto"
 
 
 
