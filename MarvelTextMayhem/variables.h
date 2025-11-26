@@ -60,7 +60,10 @@ std::string slashBombardmentS = "Slash Bombardment";
 
 // Nightcrawler Attacks
 
-int teleportStrike = 22;
+int teleportStrike = 32;
+std::string teleportStrikeS = "Teleport Strike";
+int swordStrike = 27;
+std::string swordStrikeS = "Sword Strike";
 
 //Sentinal Health
 

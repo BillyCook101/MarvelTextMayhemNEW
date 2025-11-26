@@ -14,7 +14,6 @@
 #include "AttackFunctions.h"
 #include "ColourChange.h"
 
-
 //Mention
 
 #include "mmsystem.h"
@@ -217,60 +216,6 @@ int main()
 
 			case 1:
 
-				CharacterData charData;
-
-				//PLAYERS
-
-				//Cyclops
-
-				charData.name[0] = "Cyclops";
-				charData.health[0] = 100;
-				charData.attack[0] = "Optic Blast";
-				charData.damage[0] = 30;
-				charData.attack[1] = "Optic Sweep";
-				charData.damage[1] = 25;
-
-				//Jean Grey
-
-				charData.name[1] = "Jean Grey";
-				charData.health[1] = 100;
-				charData.attack[2] = "Telekenisis Throw";
-				charData.damage[2] = 40;
-				charData.attack[3] = "Telekenisis Slam";
-				charData.damage[3] = 50;
-				charData.attack[4] = "Telekenisis Burst";
-				charData.damage[4] = 100;
-
-				//Wolverine
-
-				charData.name[2] = "Wolverine";
-				charData.health[2] = 100;
-				charData.attack[5] = "Slash Barrage";
-				charData.damage[5] = 25;
-				charData.attack[6] = "Tornado Claw";
-				charData.damage[6] = 30;
-				charData.attack[7] = "Tornado Claw";
-				charData.damage[7] = 32;
-
-				//Nightcrawler
-
-				charData.name[3] = "Nightcrawler";
-				charData.health[3] = 100;
-				charData.attack[8] = "Teleport Strike";
-				charData.damage[8] = 22;
-
-				//Deadpool
-
-				charData.name[4] = "Deadpool";
-				charData.health[4] = 100;
-				charData.attack[9] = "Chimichanga Special";
-
-				//VILLIANS
-
-				charData.name[5] = "Sabretooth";
-				charData.health[5] = 200;
-				charData.attack[10] = "Leaping Charge";
-
 
 				cout << "Make Sure You Put The Console In Full Screen For The Best Experience\n";
 				cout << "\n";
@@ -319,7 +264,7 @@ int main()
 
 				// Attacks
 
-				MoveSelect(0, opticBlastS, opticBlast, 1, telekenisisThrowS, telekenisisThrow, 2, slashBarrageS, slashBarrage);
+				MoveSelect(0, opticBlastS, 1, telekenisisThrowS, 2, slashBarrageS);
 				cin >> mutantAttack1;
 
 				while (!IsWithinInteval(mutantAttack1, 1, 3))
@@ -333,7 +278,7 @@ int main()
 
 					// ASKS FOR INPUT AGAIN
 					cout << mutantAttack1;
-					MoveSelect(0, opticBlastS, opticBlast, 1, telekenisisThrowS, telekenisisThrow, 2, slashBarrageS, slashBarrage);
+					MoveSelect(0, opticBlastS, 1, telekenisisThrowS, 2, slashBarrageS);
 					cin >> mutantAttack1;
 
 				}
@@ -342,7 +287,7 @@ int main()
 
 					std::this_thread::sleep_for(chrono::milliseconds(500));
 					ColourChange(cyclops);
-					cout << "shoots a blast at the sentinels\n";
+					cout << " shoots a blast at the sentinels\n";
 					std::this_thread::sleep_for(chrono::milliseconds(2000));
 					cout << "\n";
 
@@ -1030,7 +975,7 @@ int main()
 				std::this_thread::sleep_for(chrono::milliseconds(2500));
 				cout << "\n";
 
-				MoveSelect(0, opticSweepS, opticSweep, 1, telekenisisSlamS, telekenisisSlam, 2, tornadoClawS, tornadoClaw);
+				MoveSelect(0, opticSweepS, 1, telekenisisSlamS, 2, tornadoClawS);
 				cin >> mutantAttack2;
 
 				while (!IsWithinInteval(mutantAttack2, 1, 3)) {
@@ -1040,7 +985,7 @@ int main()
 
 					cout << "INVALID INPUT LOOK AT THE PROMPTED INPUTS AND TRY AGAIN\n";
 					cout << "\n";
-					MoveSelect(0, opticSweepS, opticSweep, 1, telekenisisSlamS, telekenisisSlam, 2, tornadoClawS, tornadoClaw);
+					MoveSelect(0, opticSweepS, 1, telekenisisSlamS, 2, tornadoClawS);
 					cin >> mutantAttack2;
 
 				}
@@ -1232,63 +1177,90 @@ int main()
 				cout << ": ";
 				ColourChange(wolverine);
 				cout << " wait up\n";
+				cout << "\n";
 
 				ColourChange(wolverine);
 				cout << " and ";
 				ColourChange(nightcrawler);
-				cout << "are heading to a bar\n";
+				cout << " are heading to a bar\n";
 
 				ColourChange(wolverine);
 				cout << " still feels great loss after \n";
 				ColourChange(jeanGrey);
-				cout << "Making him more ruthless then ever\n";
-
+				cout << ", Making him more ruthless then ever\n";
 				cout << "\n";
+
 				ColourChange(wolverine);
-				cout << ": what do you want ";
+				cout << ": Leave me alone elf, im fine on my own\n";
+				cout << "\n";
+
 				ColourChange(nightcrawler);
-				cout << "?\n";
+				cout << ": Logan its been 10 months. You cant keep going on like this\n";
+				cout << "\n";
 
-				
+				ColourChange(wolverine);
+				cout << ": Back off, I dont want to hurt you\n";
+				cout << "\n";
 
-				//ADD MORE CONTEXT THAT LEADS TO A SABERTOOTH FIGHT
+				ColourChange(wolverine);
+				cout << " Stops and sniffs around as faint scuffling is heard near bushes\n";
+				cout << "\n";
 
-				SetConsoleTextAttribute(h, 6);
-				cout << "(1) WOLVERINE: ";
-				SetConsoleTextAttribute(h, 7);
-				cout << "Slash Bombardment ";
-				SetConsoleTextAttribute(h, 14);
-				cout << "(25% chance to deal plus 50% damage) \n";
+				ColourChange(nightcrawler);
+				cout << ": Nothings happening Logan, why are you doing that?\n";
+				cout << "\n";
 
-				SetConsoleTextAttribute(h, 1);
-				cout << "(2) NIGHTCRAWLER: ";
-				SetConsoleTextAttribute(h, 7);
-				cout << "Teleport Strike ";
-				SetConsoleTextAttribute(h, 14);
-				cout << "(10% chance to perform the attack 2 times) \n";
+				ColourChange(wolverine);
+				cout << ": get away quick\n";
+				cout << "\n";
+
+				ColourChange(nightcrawler);
+				cout << ": no stop trying to get me to g-\n";
+				cout << "\n";
+
+				cout << "before ";
+				ColourChange(nightcrawler);
+				cout << " can finish speaking, a figure leaps from a nearby bush and tries to attack but instead hits nearby canaster making smoke appear around\n";
+				cout << "\n";
+
+				cout << "???: So this is where you have been all this time\n";
+				cout << "\n";
+
+				ColourChange(wolverine);
+				cout << "Who are you bub? Im not in the mood so back off before I hurt you\n";
+				cout << "\n";
+
+				cout << "???: Who am I? family reunion and you dont recognise me, im suprised\n";
+				cout << "\n";
+
+				ColourChange(wolverine);
+				cout << " Victor?\n";
+				cout << "\n";
+
+				cout << "NEW ENEMY UNLOCKED: ";
+				ColourChange(sabretooth);
+				cout << "\n";
+
+				ColourChange(sabretooth);
+				cout << " thats right little brother. Lets do this! \n";
+				cout << "\n";
+
+				ColourChange(nightcrawler);
+				cout << " Ive got your back logan\n";
+				cout << "\n";
+
+
+				MoveSelectSC(2, slashBombardmentS, slashBombardment, 3, teleportStrikeS, teleportStrike, 3, swordStrikeS, swordStrike);
 				cin >> mutantAttack4;
 
 
 				while (IsWithinInteval(mutantAttack4, 3, 1)) 
 				{	
 					cerr << "ERROR: LOOK AT THE OPTIONS AVAILABLE AND SELECT ONE\n";
-					SetConsoleTextAttribute(h, 6);
-					cout << "(1) ""WOLVERINE: ";
-					SetConsoleTextAttribute(h, 7);
-					cout << "Slash Bombardment ";
-					SetConsoleTextAttribute(h, 14);
-					SpecialChance(slashBombardment);
-
-					SetConsoleTextAttribute(h, 1);
-					cout << "(2) NIGHTCRAWLER: ";
-					SetConsoleTextAttribute(h, 7);
-					cout << "Teleport Strike ";
-					SetConsoleTextAttribute(h, 14);
-					SpecialChance(teleportStrike);
 					cout << "\n";
-
-					SetConsoleTextAttribute(h, 14);
 					cout << "TIP: Super chances allow for extra benefits which are outlined in the descriptions\n";
+					cout << "\n";
+					MoveSelectSC(2, slashBombardmentS, slashBombardment, 3, teleportStrikeS, teleportStrike, 3, swordStrikeS, swordStrike);
 					cin >> mutantAttack4;
 				}
 
@@ -1324,6 +1296,8 @@ int main()
 						cout << " damage to ";
 						ColourChange(sabretooth);
 					}
+
+
 
 				}
 
@@ -1370,10 +1344,14 @@ int main()
 
 		default:
 			cout << "This Option does not exist\n";
+			
+			
 			PlaySound(TEXT("OpenSequence.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 			break;
 		}
 
 		menuSelection = MenuSelection();
 	}
+	
+
 }	

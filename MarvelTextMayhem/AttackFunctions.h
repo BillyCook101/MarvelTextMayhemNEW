@@ -137,14 +137,134 @@ void SpecialChance(int chosenAttack)
 
 	}
 
-
+	randomSpecialChance;
 
 }
 
-void MoveSelect(int name1, std::string attack1s, int attack1, int name2, std::string attack2s, int attack2, int name3, std::string attack3s, int attack3)
+void MoveSelect(int name1, std::string attack1s,int name2, std::string attack2s, int name3, std::string attack3s)
+{
+	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+	CharacterData charData;
+
+	//PLAYERS
+
+	//Cyclops
+
+	charData.name[0] = "Cyclops"; 
+	charData.health[0] = 100;
+	charData.attack[0] = "Optic Blast";
+	charData.damage[0] = 30;
+	charData.attack[1] = "Optic Sweep";
+	charData.damage[1] = 25;
+
+	//Jean Grey
+
+	charData.name[1] = "Jean Grey";
+	charData.health[1] = 100;
+	charData.attack[2] = "Telekenisis Throw";
+	charData.damage[2] = 40;
+	charData.attack[3] = "Telekenisis Slam";
+	charData.damage[3] = 50;
+	charData.attack[4] = "Telekenisis Burst";
+	charData.damage[4] = 100;
+
+	//Wolverine
+
+	charData.name[2] = "Wolverine";
+	charData.health[2] = 100;
+	charData.attack[5] = "Slash Barrage";
+	charData.damage[5] = 25;
+	charData.attack[6] = "Tornado Claw";
+	charData.damage[6] = 30;
+	charData.attack[7] = "Tornado Claw";
+	charData.damage[7] = 32;
+
+	//Nightcrawler
+
+	charData.name[3] = "Nightcrawler";
+	charData.health[3] = 100;
+	charData.attack[8] = "Teleport Strike";
+	charData.damage[8] = 22;
+
+	//Deadpool
+
+	charData.name[4] = "Deadpool";
+	charData.health[4] = 100;
+	charData.attack[9] = "Chimichanga Special";
+
+	//VILLIANS
+
+	charData.name[5] = "Sabretooth";
+	charData.health[5] = 200;
+	charData.attack[10] = "Leaping Charge";
+
+	int attackNumber = 1;
+
+	std::cout << "(" << attackNumber << ") " << charData.name[name1] << " " << attack1s << "\n";
+	std::cout << "(" << attackNumber + 1 << ") " << charData.name[name2] << " " << attack2s << "\n";
+	std::cout << "(" << attackNumber + 2 << ") " << charData.name[name3] << " " << attack3s << "\n";
+	std::cout << "Select Option:";
+
+}
+
+void MoveSelectSC(int name1, std::string attack1s, int attack1, int name2, std::string attack2s, int attack2, int name3, std::string attack3s, int attack3)
 {
 
 	CharacterData charData;
+
+	//PLAYERS
+
+	//Cyclops
+
+	charData.name[0] = "Cyclops";
+	charData.health[0] = 100;
+	charData.attack[0] = "Optic Blast";
+	charData.damage[0] = 30;
+	charData.attack[1] = "Optic Sweep";
+	charData.damage[1] = 25;
+
+	//Jean Grey
+
+	charData.name[1] = "Jean Grey";
+	charData.health[1] = 100;
+	charData.attack[2] = "Telekenisis Throw";
+	charData.damage[2] = 40;
+	charData.attack[3] = "Telekenisis Slam";
+	charData.damage[3] = 50;
+	charData.attack[4] = "Telekenisis Burst";
+	charData.damage[4] = 100;
+
+	//Wolverine
+
+	charData.name[2] = "Wolverine";
+	charData.health[2] = 100;
+	charData.attack[5] = "Slash Barrage";
+	charData.damage[5] = 25;
+	charData.attack[6] = "Tornado Claw";
+	charData.damage[6] = 30;
+	charData.attack[7] = "Tornado Claw";
+	charData.damage[7] = 32;
+
+	//Nightcrawler
+
+	charData.name[3] = "Nightcrawler";
+	charData.health[3] = 100;
+	charData.attack[8] = "Teleport Strike";
+	charData.damage[8] = 34;
+	charData.attack[8] = "Sword Strike";
+	charData.damage[8] = 27;
+
+	//Deadpool
+
+	charData.name[4] = "Deadpool";
+	charData.health[4] = 100;
+	charData.attack[10] = "Chimichanga Special";
+
+	//VILLIANS
+
+	charData.name[5] = "Sabretooth";
+	charData.health[5] = 200;
+	charData.attack[11] = "Leaping Charge";
 
 	int attackNumber = 1;
 

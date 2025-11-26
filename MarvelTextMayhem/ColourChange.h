@@ -5,6 +5,7 @@
 #include "windows.h"
 #include "CharacterData.h"
 
+
 void ColourChange(std::string name)
 {
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
