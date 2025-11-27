@@ -2458,7 +2458,7 @@ int main()
 					cout << " deals damage until sabretooth is nearly dead";
 					cout << "\n";
 
-
+					cout << ""
 					
 
 
