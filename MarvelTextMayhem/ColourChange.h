@@ -63,15 +63,6 @@ void ColourChange(std::string name)
 
 	}
 
-	if (name == "Deadpool")
-	{
-
-		SetConsoleTextAttribute(h, 4);
-		std::cout << "Deadpool";
-		SetConsoleTextAttribute(h, 7);
-
-	}
-
 	//VILLAINS
 
 	if (name == "Sentinel")
@@ -102,12 +93,22 @@ void ColourChange(std::string name)
 
 	}
 
-	if (name == "Magneto")
+	if (name == "Mister Sinister")
 	{
 		SetConsoleTextAttribute(h, 13);
-		std::cout << "Magneto";
+		std::cout << "Professor";
 		SetConsoleTextAttribute(h, 7);
 
 	}
+
+
+	if (name == "Madelyne Pryor")
+	{
+		SetConsoleTextAttribute(h, 4);
+		std::cout << "Madelyne Pryor";
+		SetConsoleTextAttribute(h, 7);
+
+	}
+
 
 }

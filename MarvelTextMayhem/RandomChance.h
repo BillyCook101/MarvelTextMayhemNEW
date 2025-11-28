@@ -15,5 +15,5 @@ int RandomNumber(int randomNum)
 	currentNum = (rand() % randomNum) + 1;
 
 	return currentNum;
-}
+};
 
