@@ -13,6 +13,7 @@
 #include "RandomChance.h"
 #include "AttackFunctions.h"
 #include "ColourChange.h"
+#include "Achievements.h"
 
 //Mention
 
@@ -25,118 +26,6 @@
 
 
 using namespace std;
-
-
-
-
-
-//function to make sure the right input is used inside the main menu
-
-
-
-
-
-
-
-
-
-int MenuSelection()
-{
-
-	int menuSelection = 0;
-	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-
-	//This gets the sound file from file explorer and plays the selected wav file. the ASYNC allows the sound to be played while the program still runs
-	
-	
-	PlaySound(TEXT("OpenSequence.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
-    
-
-	cout << "Underrdogg Games Presents\n";
-	cout << "\n";
-
-	// Makes program wait till a certain amount of milliseconds is over to continue
-
-	SetConsoleTextAttribute(h, 12);
-	std::this_thread::sleep_for(chrono::milliseconds(1000));
-	std::cout << "****************************************************************************************************\n";
-    std::cout << "****++++++*******+++++++*****+++++++******++++++********+++++*******++++++++++++++++**+++++*********\n";
-    std::cout << "***.      .*****.       ****=       .****:         .-***      *****:                :=     :********\n";
-	std::this_thread::sleep_for(chrono::milliseconds(250));
-    std::cout << "***.      .+***+        ****:       .+***:            :*.     =****.    ..          :=     :********\n";
-    std::cout << "***.       -***-        ****.        -***:             .:     -***+.    ..          :=     :********\n";
-	std::cout << "***.       .***:        ***+         .***:     =*+.           :***=     -.    .+*****=     :********\n";
-	std::this_thread::sleep_for(chrono::milliseconds(250));
-    std::cout << "***.        +**.        ***-    ..    +**:     =***.          .***:     =.    .+*****=     :********\n";
-	std::cout << "***.        -*+.        ***:    :.    =**:     =***-          .+**.    .*.    .+*****=     :********\n";
-	std::cout << "***.        :*-         **+.    =:    :**:     =***-     .     -*+     -*.    .+*****=     :********\n";
-	std::this_thread::sleep_for(chrono::milliseconds(250));
-	std::cout << "***.        .*.         **+.    +-    .**:     =***.     -     :*-    .+*.    ......-=     :********\n";
-	std::cout << "***.        .=          **-    .*=    .+*:     =*=.     .+:    .*:    .+*.          :=     :********\n";
-	std::cout << "***.    ..   .   .      **.    :**     =*:             .=*=     =.    :**.          :=     :********\n";
-	std::this_thread::sleep_for(chrono::milliseconds(250));
-    std::cout << "***.    .:       -      *+     -**.    :*:            .+**+.    :.    -**.    ......-=     :********\n";
-	std::cout << "***.    .=      .+      *-    .+**-    .*:           .+****.          +**.    .+*****=     :********\n";
-	std::cout << "***.    .+:     .+      *:    .:--:     =:     =+.    :****:         .***.    .+*****=     :********\n";
-	std::this_thread::sleep_for(chrono::milliseconds(250));
-    std::cout << "***.    .+=     :*      +.              ::     =*-    .+***=         -***.    .+*****=     :********\n";
-	std::cout << "***.    .++.    =*      =.              .:     =**.    :****.       .+***.    .+*****=     :********\n";
-	std::cout << "***.    .+*.    **      -     -++++.    ..     =**=     =***:       .****.          :=          .***\n";
-	std::this_thread::sleep_for(chrono::milliseconds(250));
-    std::cout << "***.    .+*:   :**      .     +****-    ..     =***.    :***=       :****.          :=          .***\n";
-	std::cout << "***.    .+*+   =**           .*****=           =***-    .+**+.      -****.          :=          .***\n";
-	std::cout << "****+++++***+++***+++++++++++*******+++++++++++*****+++++*****++++++******++++++++++**++++++++++****\n";
-	std::this_thread::sleep_for(chrono::milliseconds(250));
-    std::cout << "****************************************************************************************************\n";
-
-	SetConsoleTextAttribute(h, 15);
-	std::cout << "====================================================================================================\n";
-	SetConsoleTextAttribute(h, 9);
-    std::this_thread::sleep_for(chrono::milliseconds(750));
-	cout << "                  0000 0000 00   00 0000    00    00  0000 00 00 0  0 0000 00    00" << "\n";
-	std::this_thread::sleep_for(chrono::milliseconds(250));
-	cout << "                  0000 00    00 00  0000    000  000  0  0 00 00 0  0 00   000  000" << "\n";
-	std::this_thread::sleep_for(chrono::milliseconds(250));
-	cout << "                   00  0000  00000   00     00000000  0000  000  0000 0000 00000000" << "\n";
-	std::this_thread::sleep_for(chrono::milliseconds(250));
-	cout << "                   00  00    00 00   00     00 00 00  0  0   0   0  0 00   00 00 00" << "\n";
-	std::this_thread::sleep_for(chrono::milliseconds(250));
-	cout << "                   00  0000 00   00  00     00    00  0  0   0   0  0 0000 00    00" << "\n";
-	cout << "\n";
-	std::this_thread::sleep_for(chrono::milliseconds(1000));
-
-	SetConsoleTextAttribute(h, 7);
-	cout << "Welcome To MARVEL TEXT MAYHEM\n"; 
-	cout << "\n"; 
-	cout << " (1) New Campaign\n"; 
-	cout << " (2) Achievements \n"; 
-	cout << " (3) Quit Game\n"; 
-	cout << "\n"; 
-	cout << "Please Enter Your Selection\n"; 
-
-	cin >> setw(1) >> menuSelection;
-
-
-	while (cin.good() == false)
-	{
-
-		cin.clear();
-		cin.ignore(INT_MAX, '\n');
-
-		cout << "INVALID INPUT LOOK AT THE PROMPTED INPUTS AND TRY AGAIN\n";
-		cout << " (1) New Campaign\n";
-		cout << " (2) Achievements \n";
-		cout << " (3) Quit Game\n";
-		cin >> setw(1) >> menuSelection;
-
-	}
-
-	cin.clear();
-	cin.ignore(INT_MAX, '\n');
-
-	return menuSelection;
-
-}
 
 int main()
 {
@@ -218,7 +107,7 @@ int main()
 
     charData.name[5] = "Sabretooth";
     std::string sabretooth = charData.name[5];
-    charData.health[5] = 200;
+    charData.health[5] = 250;
     charData.attack[10] = "Charging Slash";
     charData.damage[10] = 35;
     double chargingSlash = charData.damage[10];
@@ -237,40 +126,102 @@ int main()
     charData.name[8] = "Madelyne Pryor";
     std::string madelynePryor = charData.name[8];
 
-	int menuSelection = MenuSelection();
-	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 
 
-    MoveSelectSC(2, slashBombardmentS, slashBombardment, 2, slashBarrageS, slashBarrage, 3, teleportStrikeS, teleportStrike);
+    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    cin >> mutantAttack10;
+    //This gets the sound file from file explorer and plays the selected wav file. the ASYNC allows the sound to be played while the program still runs
 
-    if (mutantAttack10 == 1) {
 
-        cout << "TEST\n\n";
+    
 
-    }
-    chance = RandomNumber(chance);
 
-    if (RandomNumber(chance) == 1)
-    {
-        cout << chance;
+    
 
-        cout << "You Got The Super Chance!\n";
-        cout << "\n";
-        cout << slashBombardment;
-
-    }
-    else if (RandomNumber(chance) != 1)
-    {
-        cout << chance;
-        cout << "You Didnt Get The Super Chance!\n";
-        cout << "\n";
-        cout << slashBombardment;
-
-    }
-	while (menuSelection > 0)
+	while (true)
 	{
+
+        PlaySound(TEXT("OpenSequence.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+        cout << "Underrdogg Games Presents\n";
+        cout << "\n";
+
+        // Makes program wait till a certain amount of milliseconds is over to continue
+
+
+                   
+     
+      
+     
+   
+   
+        SetConsoleTextAttribute(h, 12);
+
+
+                  
+
+
+
+        std::this_thread::sleep_for(chrono::milliseconds(1000));
+        std::cout << R"(         _____ ______   ________  ________  ___      ___ _______   ___ )" << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(250));
+        std::cout << R"(        |\   _ \  _   \|\   __  \|\   __  \|\  \    /  /|\  ___ \ |\  \)" << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(250));
+        std::cout << R"(        \ \  \\\__\ \  \ \  \|\  \ \  \|\  \ \  \  /  / | \   __/|\ \  \)" << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(250));
+        std::cout << R"(         \ \  \\|__| \  \ \   __  \ \   _  _\ \  \/  / / \ \  \_|/_\ \  \ )" << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(250));
+        std::cout << R"(          \ \  \    \ \  \ \  \ \  \ \  \\  \\ \    / /   \ \  \_|\ \ \  \____  )" << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(250));
+        std::cout << R"(           \ \__\    \ \__\ \__\ \__\ \__\\ _\\ \__/ /     \ \_______\ \_______\)" << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(250));
+        std::cout << R"(            \|__|     \|__|\|__|\|__|\|__|\|__|\|__|/       \|_______|\|_______|)" << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(250));
+        
+              
+      
+   
+  
+
+
+
+
+                                           
+     
+     
+        SetConsoleTextAttribute(h, 15);
+        std::cout << "=========================================================================================================================================\n";
+        SetConsoleTextAttribute(h, 9);
+        std::this_thread::sleep_for(chrono::milliseconds(750));
+        cout << R"(   _________  _______      ___    ___ _________               _____ ______   ________      ___    ___ ___  ___  _______   _____ ______)" << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(250));
+        cout << R"(  |\___   ___\\  ___ \    |\  \  /  /|\___   ___\            |\   _ \  _   \|\   __  \    |\  \  /  /|\  \|\  \|\  ___ \ |\   _ \  _   \ )" << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(250));
+        cout << R"(  \|___ \  \_\ \   __/|   \ \  \/  / ||___ \  \_|____________\ \  \\\__\ \  \ \  \|\  \   \ \  \/  / | \  \\\  \ \   __/|\ \  \\\__\ \  \ )" << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(250));
+        cout << R"(       \ \  \ \ \  \_|/__  \ \    / /     \ \  \|\____________\ \  \\|__| \  \ \   __  \   \ \    / / \ \   __  \ \  \_|/_\ \  \\|__| \  \  )" << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(250));
+        cout << R"(        \ \  \ \ \  \_|\ \  /     \/       \ \  \|____________|\ \  \    \ \  \ \  \ \  \   \/  /  /   \ \  \ \  \ \  \_|\ \ \  \    \ \  \ )" << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(250));
+        cout << R"(         \ \__\ \ \_______\/  /\   \        \ \__\              \ \__\    \ \__\ \__\ \__\__/  / /      \ \__\ \__\ \_______\ \__\    \ \__\)" << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(250));
+        cout << R"(          \|__|  \|_______/__/ /\ __\        \|__|               \|__|     \|__|\|__|\|__|\___/ /        \|__|\|__|\|_______|\|__|     \|__|)" << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(250));
+        cout << R"(                          |__|/ \|__|                                                    \|___|/ )" << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(250));
+        cout << "\n";
+        std::this_thread::sleep_for(chrono::milliseconds(1000));
+
+        SetConsoleTextAttribute(h, 7);
+        cout << "Welcome To MARVEL TEXT MAYHEM\n";
+        cout << "\n";
+        cout << " (1) New Campaign\n";
+        cout << " (2) Achievements \n";
+        cout << " (3) Quit Game\n";
+        cout << "\n";
+        cout << "Please Enter Your Selection\n";
+
+        cin >> menuSelection;
+
 		switch (menuSelection)
 		{
 		case 1:
@@ -281,78 +232,49 @@ int main()
 			std::this_thread::sleep_for(chrono::milliseconds(500));
 			cout << "\n";
 			PlaySound(TEXT("backgroundMusic.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
-			cout << "Welcome to the Hero Selection Grounds\n";
 			std::this_thread::sleep_for(chrono::milliseconds(250));
-			cout << "Select your origin\n";
+            cout << "Select The Campaign\n";
 			cout << "\n";
-			cout << "(1) MUTANT: ";
-			SetConsoleTextAttribute(h, 6);
-			cout << "Wolverine";
-			SetConsoleTextAttribute(h, 7);
-			cout << ", ";
-			SetConsoleTextAttribute(h, 10);
-			cout << "Jean Grey";
-			SetConsoleTextAttribute(h, 7);
-			cout << ", and ";
-			SetConsoleTextAttribute(h, 14);
-			cout << "Cyclops\n";
-			SetConsoleTextAttribute(h, 7);
-			cout << "(2) MUTATE: Spider-Man, Hulk, and Captain America\n";
-			cout << "(3) GOD: Thor, Loki, and dormammu\n";
-			cout << "(4) TECHNOLOGY Like Iron Man, Black Panther, and Vision\n";
-			cout << "(5) MAGIC Like Doctor Strange, Scarlet Witch, and Doctor Doom\n";
+            cout << "(1) Wolverines Story\n";
 			cin >> originSelection;
 
-			while (IsWithinInteval(originSelection, 5, 1)) {
+			while (originSelection != 1) {
 
 				cin.clear();
 				cin.ignore(INT_MAX, '\n');
 
 				PlaySound(TEXT("backgroundMusic.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 			
-				cout << "(1) MUTANT: ";
-				SetConsoleTextAttribute(h, 6);
-				cout << "Wolverine";
-				SetConsoleTextAttribute(h, 7);
-				cout << ", ";
-				SetConsoleTextAttribute(h, 10);
-				cout << "Jean Grey";
-				SetConsoleTextAttribute(h, 7);
-				cout << ", and ";
-				SetConsoleTextAttribute(h, 14);
-				cout << "Cyclops\n";
-				SetConsoleTextAttribute(h, 7);
-				cout << "\n";
+			
+				cout << "(1) Wolverines Story\n";
 				
-				cout << "(1) MUTANT: Wolverine, Jean Grey, and Cyclops\n";
-				cout << "(2) MUTATE: Spider-Man, Hulk, and Captain America\n";
-				cout << "(3) GOD: Thor, Loki, and dormammu\n";
-				cout << "(4) TECHNOLOGY Like Iron Man, Black Panther, and Vision\n";
-				cout << "(5) MAGIC Like Doctor Strange, Scarlet Witch, and Doctor Doom\n";
 				cin >> setw(1) >> originSelection;
 
 			}
 
 			cout << "\n";
 
-			switch (originSelection)
+            if (originSelection == 1)
 			{
 
-			case 1:
+			
 
 
 				cout << "Make Sure You Put The Console In Full Screen For The Best Experience\n";
 				cout << "\n";
 				std::this_thread::sleep_for(chrono::milliseconds(2000));
+                cout << "Make Sure to have audio on to hear the sounds inside the game\n";
+                cout << "\n";
+                std::this_thread::sleep_for(chrono::milliseconds(2000));
 				PlaySound(TEXT("buildupmusic.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
-				SetConsoleTextAttribute(h, 7);
+
 
 				cout << R"(
-        __  __ _   _ _____  _    _   _ _____    ____    _    __  __ ____   _    ___ ____ _   _ 
-       |  \/  | | | |_   _|/ \  | \ | |_   _|  / ___|  / \  |  \/  |  _ \ / \  |_ _/ ___| \ | |
-       | |\/| | | | | | | / _ \ |  \| | | |   | |     / _ \ | |\/| | |_) / _ \  | | |  _|  \| |
-       | |  | | |_| | | |/ ___ \| |\  | | |   | |___ / ___ \| |  | |  __/ ___ \ | | |_| | |\  |
-       |_|  |_|\___/  |_/_/   \_\_| \_| |_|    \____/_/   \_\_|  |_|_| /_/   \_\___\____|_| \_|
+    __        _____  _ __     _______ ____  ___ _   _ _____ ____    ____ _____ ___  ______   __
+    \ \      / / _ \| |\ \   / / ____|  _ \|_ _| \ | | ____/ ___|  / ___|_   _/ _ \|  _ \ \ / /
+     \ \ /\ / / | | | | \ \ / /|  _| | |_) || ||  \| |  _| \___ \  \___ \ | || | | | |_) \ V / 
+      \ V  V /| |_| | |__\ V / | |___|  _ < | || |\  | |___ ___) |  ___) || || |_| |  _ < | |  
+       \_/\_/  \___/|_____\_/  |_____|_| \_\___|_| \_|_____|____/  |____/ |_| \___/|_| \_\|_|  
 
   ____ _   _    _    ____ _____ _____ ____    _           _____ ____      _    ___ _   _ ___ _   _  ____  
  / ___| | | |  / \  |  _ \_   _| ____|  _ \  / |         |_   _|  _ \    / \  |_ _| \ | |_ _| \ | |/ ___| 
@@ -363,7 +285,15 @@ int main()
               / _ \ |  \| | | | | \___ \| | | | |_  | |_  |  _| | |_) || ||  \| | |  _                    
              / ___ \| |\  | |_| |  ___) | |_| |  _| |  _| | |___|  _ < | || |\  | |_| |                   
             /_/   \_\_| \_|____/  |____/ \___/|_|   |_|   |_____|_| \_\___|_| \_|\____|                   )";
-				cout << "\n";
+				cout << "\n\n";
+                
+
+                if (hasAchievement1 == false) {
+
+                    hasAchievement1 = true;
+                    cout << "ACHIEVMENT UNLOCKED: Start Campaign\n";
+
+                }
 				std::this_thread::sleep_for(chrono::milliseconds(4000));
 				
 				cout << "At the Xmen Mansion ";
@@ -388,14 +318,12 @@ int main()
 
 				cout << ": To Me My Xmen!!\n";
 				std::this_thread::sleep_for(chrono::milliseconds(1000));
+                cout << "\n";
 
 				ColourChange(jeanGrey);
-
 				cout << ": Lets get rid of the ";
-
 				ColourChange(sentinel);
 				cout << " fast the ";
-
 				ColourChange(professor);
 				cout << " wants to see us!\n";
 				std::this_thread::sleep_for(chrono::milliseconds(2000));
@@ -425,6 +353,7 @@ int main()
 				if (mutantAttack1 == 1) {
 
 					std::this_thread::sleep_for(chrono::milliseconds(500));
+                    cout << "\n";
 					ColourChange(cyclops);
 					cout << " shoots a blast at the sentinels\n";
 					std::this_thread::sleep_for(chrono::milliseconds(2000));
@@ -562,7 +491,7 @@ int main()
 				
 					cout << "leaving the ";
 					ColourChange(sentinel);
-					cout << "with minimal damage!\n";
+					cout << " with minimal damage!\n";
 					cout << "\n";
 					std::this_thread::sleep_for(chrono::milliseconds(2000));
 					cout << R"(		
@@ -609,28 +538,22 @@ int main()
 *+=+++-=+++*#####***       ****%%*++#%***+*%#*++**###*++*####**              *###*+*+-===+-+++*  
 *+-*+=-====********       +**###%+++#%*++*##******#%#*+*###**##              **##*=*+--==+-+++*  )";
 					std::this_thread::sleep_for(chrono::milliseconds(2500));
-					cout << "\n";
-					SetConsoleTextAttribute(h, 14);
-					cout << "Cyclops ";
+					cout << "\n\n";
+                    ColourChange(cyclops);
 
-					SetConsoleTextAttribute(h, 7);
-					cout << "deals " << opticBlast - 30 << " Damage\n";
+
+					cout << " deals " << opticBlast - 30 << " Damage\n";
 					cout << "The ";
-
-					SetConsoleTextAttribute(h, 13);
-					cout << "Sentinel ";
-
-					SetConsoleTextAttribute(h, 7);
-					cout << "has " << sentinelMaxHealth << " Health\n";
+                    ColourChange(sentinel);
+					cout << " has " << sentinelMaxHealth << " Health\n";
 				}
 
 				else if (mutantAttack1 == 2) {
 
 					std::this_thread::sleep_for(chrono::milliseconds(500));
-					SetConsoleTextAttribute(h, 10);
-					cout << "Jean Grey ";
-					SetConsoleTextAttribute(h, 7);
-					cout << "uses her telekenisis\n";
+					
+                    ColourChange(jeanGrey);
+					cout << " uses her telekenisis\n";
 					std::this_thread::sleep_for(chrono::milliseconds(1500));
 					cout << "\n";
 					cout << R"(	   
@@ -666,12 +589,10 @@ int main()
 					std::this_thread::sleep_for(chrono::milliseconds(3000));
 					cout << "\n";
 					cout << "to pick up large amounts of rubble to hurs it at the ";
-
-					SetConsoleTextAttribute(h, 13);
-					cout << "Sentinel\n";
-					cout << "\n";
+                    ColourChange(sentinel);
+					cout << "\n\n";
 					std::this_thread::sleep_for(chrono::milliseconds(2500));
-					SetConsoleTextAttribute(h, 7);
+
 					cout << R"(
 
 -==========+++++*+-::------------==-++**=------::::::---::--:---+@@@%##%%%%%@@@@%%%%%%%%@%##****++**
@@ -960,11 +881,16 @@ int main()
 
 				std::this_thread::sleep_for(chrono::milliseconds(2000));
 				cout << "\n";
-				cout << "JEAN GREY: Wait whats going on. He is too powerful, who turned up the difficulty\n";
+                ColourChange(jeanGrey);
+				cout << ": Wait whats going on. He is too powerful, who turned up the difficulty\n";
 				std::this_thread::sleep_for(chrono::milliseconds(2500));
-				cout << "CYCLOPS: I dont know... Hold on wheres the exit door gone!\n";
+                cout << "\n";
+                ColourChange(cyclops);
+				cout << ": I dont know... Hold on wheres the exit door gone!\n";
 				std::this_thread::sleep_for(chrono::milliseconds(2000));
-				cout << "WOLVERINE: Listen up bub, What is this! Lets get this over with already!\n";
+                cout << "\n";
+                ColourChange(wolverine);
+				cout << ": Listen up bub, What is this! Lets get this over with already!\n";
 				std::this_thread::sleep_for(chrono::milliseconds(2500));
 				cout << "\n";
 
@@ -986,21 +912,260 @@ int main()
 				if (mutantAttack2 == 1) {
 
 					std::this_thread::sleep_for(chrono::milliseconds(500));
-					cout << "Cyclops shoots a blast at one of the Sentinels feet causing it to fall but it stops itself from falling!\n";
-					std::this_thread::sleep_for(chrono::milliseconds(2500));
+                    cout << "\n";
+                    ColourChange(cyclops);
+                    cout << " shoots a blast at the legs of the ";
+                    ColourChange(sentinel);
+                    cout << "\n";
+                    std::this_thread::sleep_for(chrono::milliseconds(2000));
+                    cout << R"(
+....................................................................:=**#####**+-:-==::.............
+..................................................................-+*####***+=::-=-:................
+...............................................................:=*#####***+::-=-:...................
+.............................................................:+######**+-::==-:.....................
+...........................................................-+*#####**+-:-=-:........................
+........................................................:=*#####**+-::==-:..........................
+......................................................-+######**+::==-:.............................
+...................................................:=**####**+-:-=-:................................
+...........................................=-.+:.:=*####**+=:.==-:..................................
+...................................:==-****#****+###****+-:-=-:.....................................
+.................................:=#**##*###%**####**+=::==:........................................
+.................................+***#*++:-=+******+-.-+-:..........................................
+.................................-=-==+#----====:::-+=:.............................................
+............................-=-=-=***-:-+----=*:--=-:...............................................
+.........................:-=-::====*=--=*:::::---==:................................................
+..................-=--==:::--::---:*#@@#*-::+%%%#-:.................................................
+................-*+--+==+#*==**=+-..+%%%#+:-#%%%*:..................................................
+..............-=#*=+*+==+=+**=.-:...+%%%%#+=#%%*--..................................................
+..........:-+*#*##**+=---...........*%%%@%#+:::-:-..................................................
+.......:=+**###****#+=-.............*%%@%@@@%**::...................................................
+......+****##**+**#+......::::....-:=%%@%%%%@%%+::-++::.:...........................................
+.....+#***#*****#%%@%%#**%%#***#*=::*%%%%%%%%%%###=--=:###***==:..........................--:-:.....
+....=#********#%%%%%%%%##*#%******=::=%%%%%%%%##%##=:::-#####***=:.....................:-:*=+---::..
+...-*#***####%%%##########*#%#****#=:::-+%%##%%#####*=*=+*#####***:....................--:*=::::--..
+..:*###*###################**#*****##+::=::--+#####%=*%*#*#%%%####+:..................:=-=%-:::::-..
+..-%########%###########%%%%######***##*:::::+=:::::==*#=-+#%%%%%%##***+=:.............--=#-:-+---..
+..:#@@%##%%%%%%%%%%%%%%@@%###@@%####***##**==+---=+*#*--#**#%%%%%#####****==#*+****#%=.-=+=##-:-=...
+.............:@@@@%@@@%%%##%#%%@@%%%####***###%%@@%%#***::=#%@%%%%##########**###%####*:--:%=::=-...
+..................:--#@#%%%%%%@%%%@%%%%#####%%%%@@@%%%#*-:-#%@%%%%%%%%%%##############+=--==-::=-...
+..........................+@@%%%@%%%%%%%%%%%%%@@@%@@%%%#=:-#%%%%%%%%%%%%%%%%%%%%%%%%%%%+++*---++....
+..........................:#@@%%%%%%%%%%%%%%@@%%%%%%%@@%+-:=*#%%%%%%%%%%%%%%%%%%%%%%%@@*=++*-.......
+...........................:#@@%%%%%%%####%#%%%%%%%%%@%##=::+#...:--::.....=#%%%%%%*:...............
+.............................*@@%%%%%%#######%%%%%%%##%%#*-:-#......................................
+...............................#@%%%@%%###%%%%%%##%%%%%%%#=::*:.....................................
+.................................=#%%%%%%%%%##%@%%%@@%%@%#*-:++.....................................
+...................................:+%%%%%#####@%%%%%%%%%##=:-+::...................................
+.....................................-@%%%%%###%%##%%%%#%%#+=+=--:..................................
+......................................*%%%%%%##%%%#%%%%%%%+=-==:--:.................................
+.......................................+%%%%%##%%%%%@%%%#+-:--=:::-.................................
+........................................=%%%%%##%#%%##+%*=:::::-----................................
+.........................................=***##+-*%@@%@%*=-::::-::::--..:-=:-+......................
+........................................:*=:-+::--=*#@%%@@*=--:::::::+++=::-+*=.....................
+.........................................:-=-:+:-::*@##+--::::::::=****#***+*:......................
+..........................................-=::-=::-=-::::::::::::*###****%#*+*+=....................
+...........................................=*+=---:::::::::::::-*%%#####**#%*****=-.................
+...........................................=++++=-:-:::::::::::+%%%%%%#######*+:--::::..............
+.........................................-%@@@@*++=---::::::.:-@@@@%%%%%####=:--:-+***+:............
+.......................................:%@@@@%%%%####*=-:::::-#@@@@@@@%%##*:--:-*****+**=:..........
+......................................+@@@%%%##@#####%%%#*++++:%@@@@@@@@%+:-::*####***+++*-.........
+....................................--:-=+***#%**#####%%%@*:....=%@@@@@@*--:=####*#%%#******:.......
+...................................:=====--::::=+**##%%%%-........-*%@@%--:*#########%%******=......
+...................................=*#*+=--:::--:::+#%%*:............:+*--*@%##########%#*****+:....
+..................................-#@%%%%###*+=-::--:*=.................:+#@@@%##########*******-...
+.................................:*@%%%%####*****+-==-.....................-*%@@%########********=..
+.................................*@@%%%####*******=:..........................-*@@@%####**********+:)";
+                    cout << "\n\n";
+                    std::this_thread::sleep_for(chrono::milliseconds(3000));
+                    cout << "causing it to fall but it stops itself from falling!\n";
+                    cout << R"(       
+                   #*#%%#*+                                                                         
+                 %%%%%#*=+*+=*                                                                      
+                @%%%%%*+==++#=+                                                                     
+                #%%@%#@#%@@@@*-=                                                                    
+                @%@##++:..-+#*=*                                                                    
+                 @#*#*+:..-*###*                  =--#                                              
+                  @+#%%---+**#*===**      +=+-===*##***                                             
+                  @##%#+==+%%%%%#=---=+--*#%%%%%#**+-::*                                            
+                   ##@@#*++%%%%%########%%%#####***++-::+                                           
+                 %%%##%+-+%%%%%%%%%%%%%%######*****++=::=@                                          
+                %%%@%#%#%%%%%#%%%%%%%%##*=###*****+++++-+#                                          
+               %#%@@%%%#%%%#%%%%%%%%##*+=-*%#******###%%%%%@                                        
+            #*##*#%%%%%%%%%%%%%%%%##**+==+%%#####%%%#*#+==*#%#### +=                                
+         #*#%%%%##%%%%%%%%%%%%%%%##**++*##%%%%%@@@%@%%#+-:-:=##%%++#*+=                             
+      *#*#%%%%%%%#%%%%####%%######*+**###%%@@@@@@@@@@@@%%*-:-:-#*=**+##+=                           
+   *=+##%%%%%%%%%%#*=:.-*#######***####%%%%%@@@@@@%@%%%%%@%#+--%*==-++:-+*=                         
+  *+##%%%%%%%%%%#=.....=*######**###%%#=*#%%%%@@@@%%%%%%%%%%%%%%##*=-:::-=+-#                       
+ ###%%##%%%%%%%%#*=...-*########%%%%%%#%%%%%%%@@@%% ###%%%%%%%@%%####+-=--+++=                      
+ @##%%#*%%%%%%%%##*+::**###%%@@@@@@@%%%%%%%%%%%@%+*    %##%%%@%%%%%####**+=:-=***=+                 
+  ####%#*%%%%%%%%%#####%%%%%@@@@@@@@%*++#%%%%@%%*=          @%%%%%%##%%%%#*--+*=--+*+*              
+  #*##%%%*#%%%%%%%%%@@@@%###****###**+=+*#%%@%%%+*          @###%%%%@@%%#*#%%*+=--:-=++*            
+   %%@%#%%%##%@@@@@@%*=*#******###***#####%%%%%#+              %#%%%%%%%%%%%###*+=-:::=*%           
+      #*%@@%##%@@%%%%%%%%***++*###**#+*#%%%%%%#+                    %%%%%%%##%%##*+--:**+           
+      **%%%@@%%%@%###%%%%%##**#%####++*+++*###+                          %##%%%%#%#+===+*=*+        
+      #+#%%@@@@*%%%#*#%%%%%#**######***++*###++                            ##*+#####+--=*+++#%#     
+     @%#+%%@@@@@##%%%##%%%%#***####%#*+===+**+***                            @=#%#*####*+%#####%    
+     %*#@%%%%%%@@%*%%%*%%%%%#######%#*++===**##++#                            %%%%%%%%%%%%%%#%+=+*  
+     #*##@@@@%@%@@@*%%%#%%%%%#*####%%%**++=***#*+-#                            @@%#+=#@@@@@%#=###** 
+     +**##%%%%%%%%%#=#%%#%%%%###%%%#%%%###==--=+*+=                              *#%###     @@%+=+-#
+     #**##%%%%%%%%**#+%%%%%%%%%%%@%%%%%#+=-:::-=***#                              ###=*       @@@@@ 
+      #*#%%%@%%%%*@  +*%%%%%%%%%%%@@%%#%*+----=-*%*-+                              @#%%             
+     %%*+%%%%%%#=    %##%%%%%%@@@%%%%%#%%*+=+##***##-=                                              
+    *+%%#%%%%%%+     +#%%%@%%%%%%%%%##%%%@@%#*++***##-=%#                                           
+    #+#%###%%#*+     ++%#%%%%%%%%%%##%%@@@%%##*++**#%#-+#*=                                         
+    *#%%%%%%%#*       +#%#%%%%%%%%%%%%@%@@@%%%#**#*##%#*%=-                                         
+    %%##*=-**=         ##%%%%%%%%%%%%@%@@@@@@@%%%%##%%%##+:+                                        
+    ###*=-+#*+         *+*%%@@%%%@@@@@%%#***#%%%*++++**###=:                                        
+    #%%##%%%#=          **%@@@@@@@@@@@%####*##%%#**+++**##*:-                                       
+  %###%%@%%%#            *%%@%%%@%%##%%%%#####%%%#**+++*###+:                                       
+ @#%%%##%%%%#           @#####%%%%%###%%%%####%%%%##*++*###*-                                       
+%%%%%#%%@%%%*           %*#####%%%%%###%%%%###%%%%%%#*+**###-=                                      
+%%%%%#%%%#%%##           **####%%%%%####%@%%%%%%%%%%%#***###*:#                                     
+%%%%@@@%%%                #*####%%%@%##%%%@%%%%%%%%%%%#***###=-                                     
+%%%%%  %@                  **###%%%%%%%%%%@%%%%%%%%%%%%#**###*-                                     
+                            %*###%%%%@%%%%%%%%%%%##%%%%%######=                                                                                                )";
+                    cout << "\n\n";
+					std::this_thread::sleep_for(chrono::milliseconds(3000));
 					cout << "\n";
-					cout << "Cyclops deals " << opticSweep - 25 << " Damage\n";
-					cout << "The Sentinel has " << sentinelMaxHealth << " Health\n";
+                    ColourChange(cyclops);
+					cout << " deals " << opticSweep - 25 << " Damage\n";
+                    cout << "The ";
+                    ColourChange(sentinel);
+                    cout << " has " << sentinelMaxHealth << " Health\n";
 				}
 
 				else if (mutantAttack2 == 2) {
 
 					std::this_thread::sleep_for(chrono::milliseconds(500));
-					cout << "Jean Grey picks up the Sentinel to slam but the sentinel uses its power dampener to disrupt Jean Greys telekenisis!\n";
-					std::this_thread::sleep_for(chrono::milliseconds(2500));
+                    ColourChange(jeanGrey);
+                    cout << " picks up the Sentinel to slam ";
+                    std::this_thread::sleep_for(chrono::milliseconds(1500));
+                    cout << R"(
+                                                     @%%%#********###%                              
+                                                  %*********####%%%%#*#                             
+                                                #*++*###**#%%%%#+*#@@@*@                            
+                                              #++*#%%%%%%%%@%%*=-::-#%%@                            
+                                   %*#%@   @#*+*##%%%%@%%%%%#+=+**-::*@##@                          
+                                  ##*######**#####%%%%%%%%%#+=-::--+*#@%*#                          
+                                 ##****##########%%%%%%@@%#*++=--==:*@@%#+@                         
+                               #**#########%%%%%%%%%%@@@%#***+=*#*=-%@%%#*                          
+                              %%%#*###########%%%%@@@@@@%#+##*+=-+*%@@%%#%                          
+                             ##*##******###%%%@@@@@@@@@@@@@@%##%#%@@@%%%*%                          
+                         **#*##***##**##%%@@@%##***#%@@@@@#@@@@@@@%%%%%%+@                          
+                         %##########%%%%@%#*@@@#*++++*%@@@#%%%@@@@%%%%%#*@                          
+                            %***#%%%%%%%#%@@@@%%####%%#*=**=%@@%@@%%%%%##                           
+                            ***%%@@@%%%+%@@@@@@@@@@@@%%%%+*=-#%%%@%%@%%%#                           
+                            %*%@   @%%+%@@@@@@@@@@@@@@@@@%#==::-#%%@@@%%#@                          
+                             @@    %+=+%@@#*+*%@@@@@@@@@@@%*=-.:-=*%@@%%%#%@@                       
+                                 %*==#@%*++*%@@@@@@@@@@@@@@%#*--=-+*=*%%%%#%                        
+                               *==-=*#*+*#%@@#@@@@@@@@@@@@@@@%*+++*###*=+#%%%                       
+                            %+=#*==#*+#@@@@@@@%@@@@@@@@@@@@@@@@%%*#####*+++*                        
+                           +=#*-=+*####%@@@@@@%#@@@@@@@@@@@@@@%#***###%##*#+                        
+                         %-+#*=*+*#%##%@@@@@@@@%#%@@@@@@@@@@@%#+:-*%%%%%@@%*                        
+                        *++*+*#*#####  @%%@@@@@@#*#%@@@@@@@@@@%***##%%%@@##                         
+                      %+**++###%###   @@@@@@@     *+*%@@@@@@@@@@@%***%#=@%#%                        
+                     **#*=+#%####                   #=+@@@@@@@@@@@##*#%+@%++                        
+                  +****=+#%#%#                       *=#@@@@@@@@@%%%#*##@%+--%                      
+            *=+++===+==*#%#                           =*@%%@@@@@%%@@#*#%@@*=:-#                     
+            *=##*==#*==*%                             ==%@%@@@@%%%@%####%#%%*:.-=                   
+          *+**#%###%%#**                         *+++*#%@@@@@@@@%%%%%##*#**##*=-:=+                 
+          **#*#%**@%#**#@                      **##***###%#%@@@@%%%%%##+%#+#%*+++=:=                
+          #**#% @@  %*+*            *+==+++++*####**#%#%#%#######%%%#*++# #*#%#***+-=               
+            *##%   #*+*%         +++*#*======++++#**@@@@@%%%%%##*+****+=#  *###%##**===             
+               %@  ##          *++++++++*##*#@  %*#@@@@@@@@@@@%#***+++*=#     ######*-==            
+                            #+-+=+*###%        %*#@@@@@@@@@@@@@@%%#*+****        #*###+---=         
+                         +===+##%##*          @**@@@@@@@@@%@@@@@%@@%%#***          %*#%#=::-==--=++ 
+                     #===+###%%%#*@           +*@@@@@@@@@%*+#%@@%%@@@@%##            @*##*+====--++*
+                   +++*#%#%%%%##*            @%#@@@@@@@@@@@%##**##%@@%##%@             %#######*+**#
+                 #**%####%%###**             **@@@@@@@@@@@@@@@%####****%#@              %#*+=*####*+
+       ##**##  %%%#######+=:==%              **@@@@@@@@@@@@@@@@@@%####+-+*%               #*+=+*  #*
+   =++=+++++===+##**#**=::::+                ##@@@@@@@@@@@@@@@@@@@@%+-::-::==               ##*++   
+*++%%######%%%#*++===-----*                   %%@@@@@@@@@@@@@@@@@@@@%#*=-:::::=+              *++   
+  @%####****##%%%%%%%%                        @@@@@@@@@@@@@@@@@@@@@%%%%%#*=::::.-+                  
+    *++*#%%######%@                           ==%%@@@@@@@@@@@@@@@@@%#%%%%%%#+-::..=*                
+   *+###*+*##@                              +--==+@%@@@@@@@@@@@@@@@%%%##%%%%%#+-:..:*               
+    %*+**#%@                                %-+*#%%##@@%@@@@@@@@@@@%%%%%##%*==*#+-:.:+              
+    **#%@                                   +=###%##%%%%@ @%@@@@@@@@%%%%%%#%#=::-+=:.:+             
+    %%                                     %-#%###*##***###%###%%%@@@##%%%%%##+-:::=-.:-@           
+                                           -#%#**####%%%%%###**+++==++*#%##%%%%+--::--.:-%          
+                                         @=#%#***##**###*##%%%%%#*+==----+*###%%*=-:.--:-:*         
+                                         =#%#**####%  @**%++*###%%%#**++=--=+*%%%#=-:.+=..:+        
+                                        %#%#**##*#         %%%*+*#%%%##**+=---=*%%#=-:=%*-:+        
+                                        *#%%##*#           @@@@@@%**#%%%#***++==+###+=*###*%        
+                                        %*%%*+%             @@@@@@@@%#**##%%##********####%         
+                                         **##%              @@@@@%#%%%####*+**########**%           
+                                          %++                @@@%###%%##%%#-:-+++*****#@            
+                                                             %%#####%%##%%*:.:%                     )";
+                    cout << "\n\n";
+                    std::this_thread::sleep_for(chrono::milliseconds(3000));
+                    cout << "but the sentinel uses its power dampener to disrupt Jean Greys telekenisis!\n";
+                    std::this_thread::sleep_for(chrono::milliseconds(2000));
+                    cout << R"(
+                                         @%%%%@@@@                                                  
+                                      %%%######%%%@@@                                               
+                                    @%%%###########%@@                                              
+                                   @%#%###%%%@%%##%#%%@@                                            
+                                  @%##%#@@%@@@@@@@@@%%#%@                                           
+                                  %%%@@@+==+++###*=@%%%%@            @@@@         @                 
+                                  %%@@@@=---=--==*%@@#@%@           @%**#%     @@%%%@@              
+                                  @@@@%*+*##+--%@@@%@#@%%          @%#***%    @%****%@              
+                                   %%+--==+*##+#*=-+@#%%%@         @%#**#%   @@#****%@              
+                                   @@@@+###*#**#=-*@@##%%@         @%#**#%   @#****%@               
+                                   @%##*%*=+*#+=+@@%###%%%          @%***@  @%****#%                
+                                    %%+*=**#@@@@@%#####%%%@        @%%**#% @%##**#%@    @@@%%%@@    
+                                    @@##%@%#########%@@@@@         @%#**#%@@#***#%@  @%%##*****%@   
+                                    @%#%########%@@@@@@@@@@@@@@@@@%@@#***%%****#@@@%#********#@@    
+                                     @#####%@@@@@@@@%##**#%%%%@@*%#%####********##******%@@@        
+                                      @@%@@@@@@@***##%%######@%*#%#******************#@             
+                                         @@@%**##%##########@%*%%***++++++++++******%@              
+                                        @%##**%###%%@@%####@@*%#**++-:.......:-++****#%%%%%%%@@@@@@ 
+                                      @%**#%%%@@@%##%%@@%##%%#**+-..............:-+***************@ 
+                                    @*##%@@%#***@*************+::=:....   ......:::-+*##%%%@%#**#%@ 
+                                  @%%%@@%%####***#%*****##***=+--:...     . .....:-=-+#%%@@   @     
+                               @%##@%%@@@%#%@##******#%#**##++=-:....        ....:--=*%@%##%@@      
+                             @%#%%##%@*=+*+*+###*********###*=-=--:..............:-=++*@@@@%#%@     
+                           @%##%#*#%@=%=%+#++###*******#*#*++==+=:-............::-===++%@@@@@%%@    
+                          @@##%#**#@+*#+#+#+*#%*******####*+++++=---::.......:::==++++=+#@@@@@%%@   
+                          %#@%%***#@=#++*+#####****##%@@%**%%#*+====--:::::.:::==++++++=+%@@@@%%%@  
+                         @**#@#***##*****####*****#**##********++----=---:::-====+++++++*#@@@@@%%@  
+                         %*********#%###%%#******************#*=++++++==+========++*******#@@@@%%@  
+                        @*************#****#*****************###*+++++++++++++++===+*******@@@@@@   
+                        @#***##***********#%*********#*******###*%%##***++++++++++*********%@@%@@   
+                        @%###%#*****%*****#%*********#*******##*%@@@%##%#*****************#@@%@@@   
+                         @@%#*#*****%******%%****************##%@@@@@@@@@*#******+********%@@@@@    
+                         @%#********%*******#%###*****#*****##@@@@@@@@@@@##%%##********###@@@@@     
+                        @%@#*#*****##***********#%#***#****#%@@@@@@@@@@@%##%@@@%%%%%%%###%@@@@      
+                        @%%###***#%#***************##******@@@@@@@@@@@%#%%@@      @@%##%%@@@        
+                        @@%###**##*********************#****%@@@@@@@@#%@@                           
+                       @%@@##**##****************************%@@@@@@%%%                             
+                       @%@@%#*###***********************#*****@@@@@@#%@                             
+                       @%@@%##*************************##*****@@@@@@%%@                             
+                        @@@%%#*#***###*****###*#***#*####*****#@@@@@%%                              
+                      @@%@@%%###**#*%#%####%###%##**********##*@@@@@%@                              
+                     @%@@@%#%%#***#*%#%###%%#######*#***##****%@%@@@%@                              
+                   @@@%%%%@%%%#***#*##%####%#%####%*%**********#@@@%%@                              
+                 @@@@@@#####%%#***#***##########****#****#******@@@@%@                              
+                @@@@%%######%####***********************#%#*****%@@@%@                              
+               @@@@%#######%@%##******************************##*@@@%%                              
+              @@%#******###%#%#********************************%@%@@%%@                             
+             @%#*********#%%%#*****************************#*****%@@%%@                             
+          @@%************%%%###***********************************@@@%@                             
+      @%****************%%%#########%**#********************#*****@@@%%@                            
+     @%%********#******%%##############%*#************************#@@%%@                            
+  @@%%%%**##****#****#%%####################*****************#****#@@%%%                            
+ @#%%%%%#**#****##*#%@%###################%##****************#**#%%@@@#%@                           
+ @###%%%%#**#**#***%@%%###################%%##**************#######%@@%@@                           
+ @@%%%%%##%#*%****#%@%####################%@#************###########%@%%@                           
+  @%%%@@@%**##*##%%@%####################*%@%%*********#############%@@%@@                          
+    @%###%%%#**@@ @%%#####################%@@%********###############%@%%@                          
+     @@@%##%@%%@  @%##################%###%@%#*****%#################%@@%@                          
+       @@@@      @%%##################%%##@@%%%#%%%###################@@%@                )";
+					std::this_thread::sleep_for(chrono::milliseconds(3500));
 					cout << "\n";
-					cout << "Jean Grey deals " << telekenisisSlam - 50 << " Damage\n";
-					cout << "The Sentinel has " << sentinelMaxHealth << " Health\n";
+                    ColourChange(jeanGrey);
+					cout << " deals " << telekenisisSlam - 50 << " Damage\n";
+                    cout << "The ";
+                    ColourChange(sentinel);
+                    cout << " has " << sentinelMaxHealth << " Health\n";
 				}
 
 				else if (mutantAttack2 == 3) {
@@ -1014,18 +1179,25 @@ int main()
 
 				std::this_thread::sleep_for(chrono::milliseconds(2000));
 				cout << "\n";
-				cout << "CYCLOPS: Something feels different about it why wont our attacks even do anything\n";
+                PlaySound(TEXT("deepGrungeBass.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+                ColourChange(cyclops);
+				cout << ": Something feels different about it why wont our attacks even do anything\n";
 				std::this_thread::sleep_for(chrono::milliseconds(2500));
-				cout << "JEAN GREY: Im not sure, im gonna have to break the simulation\n";
-
-				PlaySound(TEXT("deepGrungeBass.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
-				
+                cout << "\n";
+                ColourChange(jeanGrey);
+				cout << ": Im not sure, im gonna have to break the simulation\n";
 				std::this_thread::sleep_for(chrono::milliseconds(2000));
-				cout << "CYCLOPS: Jean wait, be careful of the pheonix force! Remember what happened last time\n";
+                cout << "\n";
+                ColourChange(cyclops);
+				cout << ": Jean wait, be careful of the pheonix force! Remember what happened last time\n";
 				std::this_thread::sleep_for(chrono::milliseconds(3000));
-				cout << "WOLVERINE: Slim move back don't be stupid!\n";
+                cout << "\n";
+                ColourChange(wolverine);
+				cout << ": Slim move back don't be stupid!\n";
 				std::this_thread::sleep_for(chrono::milliseconds(1500));
-				cout << "CYCLOPS: No time for the insults logan but fine do what you have to do Jean!\n";
+                cout << "\n";
+                ColourChange(cyclops);
+				cout << ": No time for the insults logan but fine do what you have to do Jean!\n";
 				std::this_thread::sleep_for(chrono::milliseconds(2500));
 				cout << "\n";
 				cout << "(1) Charge Telekenisis Burst\n";
@@ -1046,9 +1218,12 @@ int main()
 				}
 
 				std::this_thread::sleep_for(chrono::milliseconds(1000));
-				cout << "CYCLOPS: Jean stop it its dangerous be careful!\n";
+                ColourChange(cyclops);
+				cout << ": Jean stop it its dangerous be careful!\n";
 				std::this_thread::sleep_for(chrono::milliseconds(1500));
-				cout << "JEAN GREY: its okay Scott I can control it!\n";
+                cout << "\n";
+                ColourChange(jeanGrey);
+				cout << ": its okay Scott I can control it!\n";
 				cout << "\n";
 				std::this_thread::sleep_for(chrono::milliseconds(1500));
 				cout << "(1) Charge Telekenisis Burst\n";
@@ -1075,26 +1250,24 @@ int main()
 				ColourChange(jeanGrey);
 				cout << ", DO IT NOWW!\n";
 				std::this_thread::sleep_for(chrono::milliseconds(4000));
-
+                cout << "\n";
 
 				ColourChange(wolverine);
-				cout << ": ";
-				ColourChange(jeanGrey);
-				cout << " NO!\n";
-
+				cout << ": JEAN NO!\n";
 				std::this_thread::sleep_for(chrono::milliseconds(3000));
+                cout << "\n";
 
 				ColourChange(wolverine);
 				cout << " charges to stop ";
 				ColourChange(jeanGrey);
 				cout << " from hurting herself again!\n";
 				std::this_thread::sleep_for(chrono::milliseconds(4000));
+                cout << "\n";
 
 				ColourChange(cyclops);
-				cout << ": ";
-				ColourChange(wolverine);
-				cout << " DONT DO IT!\n";
+				cout << ": LOGAN DONT DO IT!\n";
 				std::this_thread::sleep_for(chrono::milliseconds(4000));
+                cout << "\n";
 
 				cout << "(1) Release Telekenisis Burst\n";
 				cin >> setw(1) >> jeanRelease;
@@ -1111,7 +1284,10 @@ int main()
 
 				}
 
-				cout << "\n";
+                ColourChange(jeanGrey);
+                cout << ": Goodbye Scott. I Love you-\n";
+                cout << "\n";
+
 				ColourChange(jeanGrey);
 				cout << " pushes ";
 				ColourChange(wolverine);
@@ -1121,16 +1297,22 @@ int main()
 
 				cout << "The Danger Room Simulation Shatters as the Xmen mansion shakes!\n";
 				cout << "\n";
+                if (hasAchievement5 == false) {
+
+                    hasAchievement5 = true;
+                    cout << "ACHIEVMENT UNLOCKED: Destroy Danger Room\n";
+
+                }
 				std::this_thread::sleep_for(chrono::milliseconds(4000));
 
 				ColourChange(wolverine);
 				cout << " heals back to normal and rushes over to ";
 				ColourChange(jeanGrey);
 				std::this_thread::sleep_for(chrono::milliseconds(3000));
-				cout << "\n";
+				cout << "\n\n";
 
 				ColourChange(wolverine);
-				cout << " NO NO NO NO, wake up, WAKE UP!\n";
+				cout << ": NO NO NO NO, wake up, WAKE UP!\n";
 				std::this_thread::sleep_for(chrono::milliseconds(3000));
 				cout << "\n";
 				ColourChange(jeanGrey);
@@ -1143,6 +1325,14 @@ int main()
 				cout << "\n";
 				cout << "\n";
 
+             
+                if (hasAchievement2 == false) {
+
+                    hasAchievement2 = true;
+                    cout << "ACHIEVMENT UNLOCKED: Finish Chapter 1\n";
+
+                }
+                cout << "\n";
 
 				//CHAPTER 2
 
@@ -1174,6 +1364,12 @@ int main()
 				cout << "NEW CHARACTER UNLOCKED: ";
 				ColourChange(nightcrawler);
 				cout << "\n";
+                if (hasAchievement6 == false) {
+
+                    hasAchievement6 = true;
+                    cout << "ACHIEVMENT UNLOCKED: Unlock Nightcrawler\n";
+
+                }
                 std::this_thread::sleep_for(chrono::milliseconds(2000));
 
 				ColourChange(nightcrawler);
@@ -1566,8 +1762,16 @@ int main()
 
 					if (RandomNumber(4) == 1)
 					{
-
+                        slashBombardment = slashBombardment * 2;
 						cout << "You Got The Super Chance!\n";
+
+                        if (hasAchievement8 == false)
+                        {
+                            hasAchievement8 = true;
+                            cout << "ACHIEVMENT UNLOCKED : Get Super Chance\n";
+
+                        }
+
 						cout << "\n";
 						ColourChange(wolverine);
 						cout << " deals ";
@@ -1836,8 +2040,18 @@ int main()
 
 					if (RandomNumber(chance) == 1)
 					{
+
+                        teleportStrike = teleportStrike * 2;
 						cout << "You Got The Super Chance!\n";
 						cout << "\n";
+
+                        if (hasAchievement8 == false)
+                        {
+                            hasAchievement8 = true;
+                            cout << "ACHIEVMENT UNLOCKED : Get Super Chance\n";
+
+                        }
+
 
                         ColourChange(nightcrawler);
                         cout << " deals ";
@@ -2151,7 +2365,16 @@ int main()
 
 					if (RandomNumber(chance) == 1)
 					{
+                        swordStrike = swordStrike * 2;
 						cout << "You Got The Super Chance!\n";
+
+                        if (hasAchievement8 == false)
+                        {
+                            hasAchievement8 = true;
+                            cout << "ACHIEVMENT UNLOCKED : Get Super Chance\n";
+
+                        }
+
 						cout << "\n";
 						ColourChange(nightcrawler);
 						cout << " deals ";
@@ -2455,7 +2678,7 @@ int main()
 				ColourChange(wolverine);
 				cout << ", ";
 				ColourChange(wolverine);
-				cout << " anger is starting to build up again\n";
+				cout << " anger starts to build up again\n";
 				cout << "\n";
 
                 std::this_thread::sleep_for(chrono::milliseconds(3000));
@@ -2480,7 +2703,7 @@ int main()
 
 				cout << "(1)";
 				ColourChange(wolverine);
-				cout << "UNLEASH ANGER\n";
+				cout << " UNLEASH ANGER\n";
 				cin >> wolverineWrath;
 
 
@@ -2499,7 +2722,7 @@ int main()
 				
 				cout << "\n";
 				ColourChange(wolverine);
-				cout << "charges at ";
+				cout << " charges at ";
 				ColourChange(sabretooth);
 				cout << " and releashes his anger that has been built up for the last 10 months with a barrage of slashes";
 				cout << "\n";
@@ -2564,15 +2787,15 @@ int main()
             std::this_thread::sleep_for(chrono::milliseconds(3000));
 
 			ColourChange(wolverine);
-			cout << " deals \n";
+			cout << " deals ";
             cout << devastatingSlashes;
             cout << " damage to ";
             ColourChange(sabretooth);
-			cout << "\n";
+			cout << "\n\n";
             charData.health[5] = charData.health[5] - devastatingSlashes;
 
             ColourChange(sabretooth);
-            cout << " now has " << charData.health[5];
+            cout << " now has " << charData.health[5] << " health left\n";
             cout << "\n";
 
             std::this_thread::sleep_for(chrono::milliseconds(3000));
@@ -2596,17 +2819,17 @@ int main()
             std::this_thread::sleep_for(chrono::milliseconds(2000));
 
 			ColourChange(sabretooth);
-            cout << "angrily walks and punches the bar door which gets launched directly at ";
+            cout << " angrily walks and punches the bar door which gets launched directly at ";
 			ColourChange(wolverine);
-			cout << "\n";
+			cout << "\n\n";
 
             std::this_thread::sleep_for(chrono::milliseconds(3000));
 
             MoveSelectSC(2, slashBombardmentS, slashBombardment, 2, slashBarrageS, slashBarrage, 3, teleportStrikeS, teleportStrike);
            
-            cin >> mutantAttack10;
+            cin >> mutantAttack5;
 
-            while (!IsWithinInteval(mutantAttack10, 1, 3)) {
+            while (!IsWithinInteval(mutantAttack5, 1, 3)) {
 
                 cin.clear();
                 cin.ignore(INT_MAX, '\n');
@@ -2614,13 +2837,13 @@ int main()
                 cout << "INVALID INPUT LOOK AT THE PROMPTED INPUTS AND TRY AGAIN\n";
                 cout << "\n";
                 MoveSelectSC(2, slashBombardmentS, slashBombardment, 2, slashBarrageS, slashBarrage, 3, teleportStrikeS, teleportStrike);
-                cin >> mutantAttack10;
+                cin >> mutantAttack5;
 
             }
 
-            if (mutantAttack10 == 1) 
+            if (mutantAttack5 == 1) 
             {
-
+                cout << "\n";
                 ColourChange(wolverine);
                 cout << " Charges at ";
                 ColourChange(sabretooth);
@@ -2746,6 +2969,7 @@ int main()
                                 .......:%==--:--=++=--==++*##%%%%#*:............=##%%%%%%%%%%%%###***+++++******++++*+:....   .......                 
                                 .......*+==----=+++====+*##%%%%%#=.................:-*%%%%%%%%%%%%##***++++++++***+++=--.............                 
                                 ......-++=-====+++++++*#####%%%*:........................-+#%%%%%@%%%###***++++*####=--:-:...........                 )";
+                cout << "\n\n";
 
                 std::this_thread::sleep_for(chrono::milliseconds(3000));
 
@@ -2753,10 +2977,19 @@ int main()
 
                 if (RandomNumber(chance) == 1)
                 {
-                    cout << chance;
+                    slashBombardment = slashBombardment * 2;
+
 
                     cout << "You Got The Super Chance!\n";
                     cout << "\n";
+
+                    if (hasAchievement8 == false)
+                    {
+                        hasAchievement8 = true;
+                        cout << "ACHIEVMENT UNLOCKED : Get Super Chance\n";
+
+                    }
+
                     charData.health[5] = charData.health[5] - slashBombardment;
 
                     ColourChange(wolverine);
@@ -2774,7 +3007,7 @@ int main()
                 }
                 else if (RandomNumber(chance) != 1)
                 {
-                    cout << chance;
+
 
                     cout << "You Didnt Get The Super Chance!\n";
                     cout << "\n";
@@ -2797,7 +3030,7 @@ int main()
         
 
             }
-            else if (mutantAttack10 == 2) 
+            else if (mutantAttack5 == 2) 
             {
 
                 ColourChange(wolverine);
@@ -2855,29 +3088,7 @@ int main()
                                             =-###*****#%%%#%#****++++#%@@+-                         
                                              --########## .##****++==*%@@+=                         
                                                +%%#%%%+   .=###*+++==+@@@=                          
-                                                   =%%+    -##**+++=++#@@=                          
-                                                           :*-**++*++*#@+-                          
-                                                            .+#+++++**##-                           
-                                                            :##*++++*#*--                           
-                                                            :*##*++*##-                             
-                                                             -#%####%#:.#                           
-                                                              -%%###%#=.#:                          
-                                                              -*%#**##*-=-                          
-                                                             :=+%%#####%+=                          
-                                                              -%%#####@#+                           
-                                                              =@@%##%@@+-                           
-                                                              =@@@%%@@=                             
-                                                              -*@%%%@*=                             
-                                                               *%%@@##                              
-                                                               *@@@#*                               
-                                                               =#@@*                                
-                                                               *@%@=-                               
-                                                              -*%@%+-                               
-                                                              +%@@%+=                               
-                                                             -#%%%@+                                
-                                                             =%%%%%=                                
-                                                              %@@@=                                 
-                                                               #*                                   )";
+                                                   =%%+    -##**+++=++#@@=                          )";
                
                 cout << "\n\n";
 
@@ -2975,34 +3186,7 @@ int main()
              --%%#%*+===++**#@@@@@@@@@@@@@%%%@@@@@%%%##+==--========---                             
              --%%***+====***#@@@@@@@@@@@@@@@%%@@@@@@@%#*++==---=====----:                           
               -**=**+====***#@@@@@@%%#@@@@@@@@@@@@@@@%****++======+=====-                           
-              -*#++*++==***#%@@@@%  ==*%@@@@@@@@@@@@@###*****+++++*+--===:                          
-              -+%#**++=+***#%@@@@@  +#%%#%%@@@@@@@@@@#######*******+-----:                          
-               =**=+*+*****#%@@@@# ++%%%%%%%%%%%##%@@%%########****+=====-                          
-               -=*==+*#***#%%%@@% ==#%%%%%##%%%%%##*#%%%##**######**++++++-                         
-                =##=+######%%%@@ =+#%%%%%       #%%#**#%%%##*######++++++=                          
-                 =#*+*####%%#%%#+=*%%%%%#         #%%###%%####%####*****+                           
-                 =+######****#%*++#%@%%#            ##%%%%%%%%%#%#######=                           
-                  =%%####***##%%++#@@%#                *##%%%%%%%%#####                             
-                  +%%%%#####%%%  #@@%+                      *##*+--                                 
-                -=##%****#%@@%                                                                      
-               -=#%*##***#%%*                                                                       
-               -#%%########%                                                                        
-              -=%*#%%%##%%%%%                                                                       
-              -=%**#%%%%%%##%                                                                       
-               -##**%%#%%%##%                                                                       
-               -=%#*#%##%%###                                                                       
-                -*%##%%##%%%%                                                                       
-                 -*%%%%%#%%%                                                                        
-                  -=%%%%%#%%*                                                                       
-                    -+#%%%%%%*                                                                      
-                       +#%%%%#+                                                                     
-                          *%%##+                                                                    
-                           ##***                                                                    
-                           +#*=*#*                                                                  
-                           =#*++*#=                                                                 
-                            =#*+=**                                                                 
-                             +#%#%#                                                                 
-                              =*@@@                                                                 )";
+              -*#++*++==***#%@@@@%  ==*%@@@@@@@@@@@@@###*****+++++*+--===:                          )";
                 cout << "\n\n";
 
                 std::this_thread::sleep_for(chrono::milliseconds(3000));
@@ -3011,10 +3195,18 @@ int main()
 
                 if (RandomNumber(chance) == 1)
                 {
-                    cout << chance;
+                    slashBarrage = slashBarrage * 2;
+
 
                     cout << "You Got The Super Chance!\n";
                     cout << "\n";
+
+                    if (hasAchievement8 == false)
+                    {
+                        hasAchievement8 = true;
+                        cout << "ACHIEVMENT UNLOCKED : Get Super Chance\n";
+
+                    }
 
                     charData.health[5] = charData.health[5] - slashBarrage;
 
@@ -3033,7 +3225,7 @@ int main()
                 }
                 else if (RandomNumber(chance) != 1)
                 {
-                    cout << chance;
+
 
                     cout << "You Didnt Get The Super Chance!\n";
                     cout << "\n";
@@ -3057,7 +3249,7 @@ int main()
 
                    
             }
-            else if (mutantAttack10 == 3) {
+            else if (mutantAttack5 == 3) {
 
                 ColourChange(nightcrawler);
                 cout << " teleports behind ";
@@ -3225,8 +3417,17 @@ int main()
 
                 if (RandomNumber(chance) == 1)
                 {
+                    teleportStrike = teleportStrike * 2;
+
                     cout << "You Got The Super Chance!\n";
                     cout << "\n";
+
+                    if (hasAchievement8 == false)
+                    {
+                        hasAchievement8 = true;
+                        cout << "ACHIEVMENT UNLOCKED : Get Super Chance\n";
+
+                    }
 
                     charData.health[5] = charData.health[5] - teleportStrike;
                     ColourChange(nightcrawler);
@@ -3240,6 +3441,7 @@ int main()
                     cout << charData.health[5];
                     cout << " health left\n";
                     cout << "\n";
+                    
 
 
 
@@ -3275,7 +3477,7 @@ int main()
             std::this_thread::sleep_for(chrono::milliseconds(2500));
 
             ColourChange(wolverine);
-            cout << "elf teleport behind trust me\n";
+            cout << ": elf teleport behind trust me\n";
             cout << "\n";
 
             std::this_thread::sleep_for(chrono::milliseconds(2000));
@@ -3344,9 +3546,9 @@ int main()
             std::this_thread::sleep_for(chrono::milliseconds(3000));
 
             ColourChange(nightcrawler);
-            cout << "grabs ";
+            cout << " grabs ";
             ColourChange(sabretooth);
-            cout << "and chucks him towards ";
+            cout << " and chucks him towards ";
             ColourChange(wolverine);
             cout << "\n\n";
 
@@ -3357,6 +3559,14 @@ int main()
             ColourChange(sabretooth);
             cout << ", killing him\n";
             cout << "\n";
+
+            
+            if (hasAchievement7 == false) {
+
+                hasAchievement7 = true;
+                cout << "ACHIEVMENT UNLOCKED: Defeat Sabretooth\n";
+
+            }
 
             std::this_thread::sleep_for(chrono::milliseconds(2500));
 
@@ -3378,9 +3588,11 @@ int main()
 
             std::this_thread::sleep_for(chrono::milliseconds(2000));
 
+            PlaySound(TEXT("earth-music-by-kris-20138.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+
             cout << "Back at the Xmen Mansion a funeral for ";
             ColourChange(jeanGrey);
-            cout << "is taking place\n";
+            cout << " is taking place\n";
             cout << "\n";
             std::this_thread::sleep_for(chrono::milliseconds(3000));
 
@@ -3390,7 +3602,7 @@ int main()
             std::this_thread::sleep_for(chrono::milliseconds(3500));
 
             ColourChange(cyclops);
-            cout << ": Theres some evil person out there that did this. He is to blame but Jean would not want us to kill them";
+            cout << ": Theres some evil person out there that did this. He is to blame but Jean would not want us to kill them\n";
             cout << "\n";
             std::this_thread::sleep_for(chrono::milliseconds(4000));
 
@@ -3404,7 +3616,7 @@ int main()
             std::this_thread::sleep_for(chrono::milliseconds(2500));
 
             ColourChange(cyclops);
-            cout << "heads out towards the exit of the mansion and \n";
+            cout << " heads out towards the exit of the mansion and \n";
             cout << "\n";
             ColourChange(wolverine);
             cout << " catches up to him\n";
@@ -3413,29 +3625,40 @@ int main()
             std::this_thread::sleep_for(chrono::milliseconds(3000));
 
             ColourChange(wolverine);
-            cout << "Scott where are you going?\n";
+            cout << ": Scott where are you going?\n";
             cout << "\n";
             std::this_thread::sleep_for(chrono::milliseconds(2000));
 
             ColourChange(cyclops);
-            cout << "You know where just let me do this\n";
+            cout << ": You know where. Just let me do this\n";
             cout << "\n";
             std::this_thread::sleep_for(chrono::milliseconds(2500));
 
             ColourChange(wolverine);
-            cout << "Jean wouldn't want this. You said it yourself. Don't be stupid!\n";
+            cout << ": Jean wouldn't want this. You said it yourself. Don't be stupid!\n";
             cout << "\n";
             std::this_thread::sleep_for(chrono::milliseconds(3000));
 
             ColourChange(cyclops);
-            cout << "Goodbye Logan. Don't worry about me!\n";
+            cout << ": Goodbye Logan. Don't worry about me!\n";
             cout << "\n";
             std::this_thread::sleep_for(chrono::milliseconds(2500));
 
             ColourChange(wolverine);
-            cout << "Okay but wait...im coming with you!\n";
+            cout << ": Okay but wait...im coming with you!\n";
             cout << "\n";
+
+            if (hasAchievement3 == false) {
+
+                hasAchievement3 = true;
+                cout << "ACHIEVMENT UNLOCKED: Finish Chapter 2\n";
+
+            }
+
+
             std::this_thread::sleep_for(chrono::milliseconds(2500));
+
+            PlaySound(TEXT("credits-66992.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
             cout << R"(         
                              _____ _   _ _____   _____ _   _ ____                                  
@@ -3449,6 +3672,21 @@ int main()
   |_| |_| |_/_/   \_\_| \_|_|\_\____/  |_|   \___/|_| \_\ |_|   |_____/_/   \_\_| |___|_| \_|\____|)";
             cout << "\n\n";
             std::this_thread::sleep_for(chrono::milliseconds(4000));
+
+            cout << "Producer - Billy Cook\n";
+            std::this_thread::sleep_for(chrono::milliseconds(4000));
+            cout << "Mechanics - Billy Cook\n";
+            std::this_thread::sleep_for(chrono::milliseconds(4000));
+            cout << "UI Designer - Billy Cook\n";
+            std::this_thread::sleep_for(chrono::milliseconds(4000));
+            cout << "Programmer - Billy Cook\n";
+            std::this_thread::sleep_for(chrono::milliseconds(4000));
+            cout << "Writer - Billy Cook\n";
+            std::this_thread::sleep_for(chrono::milliseconds(4000));
+            cout << "Characters and elements from the Marvel Universe are the property of Marvel.\n";
+            cout << "Marvel characters and related elements © Marvel.\n";
+            cout << "\n";
+            PlaySound(TEXT("scary-sound-suspense-314626.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
             cout << "POST CREDITS SCENE:\n";
             cout << "\n";
@@ -3470,25 +3708,151 @@ int main()
   | || |_| | | |_) | |___  | |__| |_| | |\  | | |  | || |\  | |_| | |___| |_| |  _   _   _ 
   |_| \___/  |____/|_____|  \____\___/|_| \_| |_| |___|_| \_|\___/|_____|____/  (_) (_) (_))";
             cout << "\n\n";
+            if (hasAchievement4 == false) {
+
+                hasAchievement4 = true;
+                cout << "ACHIEVMENT UNLOCKED: Finish Campaign\n";
+
+            }
+
             std::this_thread::sleep_for(chrono::milliseconds(4000));
 
+            break;
+
+        case 2:
+            {
+
+                cout << "Welcome to the achievment menu";
+
+                if (hasAchievement1 == true)
+                {
+
+                    achievement1 = "UNLOCKED: Start Campaign";
+
+                }
+
+                if (hasAchievement2 == true)
+                {
+
+                    achievement2 = "UNLOCKED: Finish Chapter 1";
+
+                }
+
+                if (hasAchievement3 == true)
+                {
+
+                    achievement3 = "UNLOCKED: Finish Chapter 2";
+
+                }
+
+                if (hasAchievement4 == true)
+                {
+
+                    achievement4 = "UNLOCKED: Finish Campaign";
+
+                }
+
+                if (hasAchievement5 == true)
+                {
+
+                    achievement5 = "UNLOCKED: Destroy Danger Room";
+
+                }
 
 
-          
+                if (hasAchievement6 == true)
+                {
+
+                    achievement6 = "UNLOCKED: Unlock Nightcrawler";
+
+                }
+
+                if (hasAchievement7 == true)
+                {
+
+                    achievement7 = "UNLOCKED: Defeat Sabretooth";
+
+                }
+
+                if (hasAchievement8 == true)
+                {
+
+                    achievement8 = "UNLOCKED: Get a Super Chance";
+
+                }
+
+                cout << achievement1 << "\n";
+                cout << achievement2 << "\n";
+                cout << achievement3 << "\n";
+                cout << achievement4 << "\n";
+                cout << achievement5 << "\n";
+                cout << achievement6 << "\n";
+                cout << achievement7 << "\n";
+                cout << achievement8 << "\n";
+
+                cout << "(1) Back to Main Menu\n";
+                cin >> achievmentSelect;
+
+                while (achievmentSelect != 1) 
+                {
+
+                    cerr << "ERROR_INCORRECT_INPUT_TRY_AGAIN\n";
+                    cout << "\n";
+                    cout << "(1) Back to Main Menu\n";
+                    cin >> achievmentSelect;
+                }
+
+                break;
+                
+        case 3:
+
+            exit(0);
+
+
+
+            }
+
+
 
 		default:
 			cout << "\n";
 			cout << "This Option does not exist\n";
 			cout << "\n";
-			
-			
-			PlaySound(TEXT("OpenSequence.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
-			break;
-		    }
+      
 
-		menuSelection = MenuSelection();
+
+			
+            PlaySound(TEXT("OpenSequence.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+
+          
+
+		    }
+           
+            
+		
 	    }
-	
+	    
 
     }
+
+
+
+    while (!IsWithinInteval(menuSelection, 3, 1))
+    {
+
+        cin.clear();
+        cin.ignore(INT_MAX, '\n');
+
+        cout << "INVALID INPUT LOOK AT THE PROMPTED INPUTS AND TRY AGAIN\n";
+        cout << "\n";
+        cout << " (1) New Campaign\n";
+        cout << " (2) Achievements \n";
+        cout << " (3) Quit Game\n";
+        cout << "\n";
+        cin >> menuSelection;
+
+    }
+
+
+
 }

@@ -2,12 +2,14 @@
 #include <iostream>
 #include <string>
 
-; 
+
 int menuSelection;
 int originSelection;
 int value;
 int upperBound;
 int lowerBound;
+int achievmentSelect;
+
 
 //MUTANT CAMPAIGN
 
@@ -21,15 +23,9 @@ int mutantAttack3;
 
 
 int mutantAttack4;
-
-
-
 int mutantAttack5;
-int mutantAttack6;
-int mutantAttack7;
-int mutantAttack8;
-int mutantAttack9;
-int mutantAttack10;
+
+;
 
 int jeanCharge1;
 int jeanCharge2;

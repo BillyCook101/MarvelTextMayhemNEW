@@ -5,10 +5,10 @@
 
 struct CharacterData
 {
-	std::string name[15];
-	int health[15];
-	std::string attack[20];
-	double damage[20];
+	std::string name[9];
+	int health[6];
+	std::string attack[13];
+	double damage[13];
 
 
 };

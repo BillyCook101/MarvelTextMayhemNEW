@@ -96,7 +96,7 @@ void ColourChange(std::string name)
 	if (name == "Mister Sinister")
 	{
 		SetConsoleTextAttribute(h, 13);
-		std::cout << "Professor";
+		std::cout << "Mister Sinister";
 		SetConsoleTextAttribute(h, 7);
 
 	}
