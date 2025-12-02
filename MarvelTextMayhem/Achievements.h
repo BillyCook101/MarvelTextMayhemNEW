@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 
+// ALL THE VARIABLES FOR THE ACHIEVEMENTS
+
 bool hasAchievement1 = false;
 bool hasAchievement2 = false;
 bool hasAchievement3 = false;

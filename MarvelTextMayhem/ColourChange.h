@@ -6,6 +6,8 @@
 #include "CharacterData.h"
 
 
+//FUNCTION FOR CHANGING THE DIFFERENT CHARACTER NAMES TO A CERTAIN COLOUR
+
 void ColourChange(std::string name)
 {
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);

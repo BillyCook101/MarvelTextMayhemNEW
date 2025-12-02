@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 
+//CHARACTER DATA 
 
 struct CharacterData
 {

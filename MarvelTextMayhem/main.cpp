@@ -7,7 +7,6 @@
 
 #include "windows.h"
 
-
 #include "CharacterData.h"	
 #include "variables.h"
 #include "RandomChance.h"
@@ -15,13 +14,7 @@
 #include "ColourChange.h"
 #include "Achievements.h"
 
-//Mention
-
 #include "mmsystem.h"
-
-
-
-
 #pragma comment(lib,"winmm.lib")
 
 
@@ -30,6 +23,8 @@ using namespace std;
 int main()
 {
     CharacterData charData;
+
+    //THIS IS ALL THE CHARACTER DATA FROM THE CHARACTER DATA HEADER FILE
 
     //PLAYERS
 
@@ -146,27 +141,18 @@ int main()
 	while (true)
 	{
 
-
+        //PLAYS SOUNDS THAT ARE IN THE FILE AND CONTINUES WHILE CODE IS RUNNING USING ASYNC
+        
         PlaySound(TEXT("OpenSequence.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
         cout << "Underrdogg Games Presents\n";
         cout << "\n";
 
-        // Makes program wait till a certain amount of milliseconds is over to continue
+       //CHANGES TEXT COLOUR DEPENDING ON NUMBER
 
-
-                   
-     
-      
-     
-   
-   
         SetConsoleTextAttribute(h, 12);
 
-
-                  
-
-
+        // Makes program wait till a certain amount of milliseconds is over to continue
 
         std::this_thread::sleep_for(chrono::milliseconds(1000));
         std::cout << R"(         _____ ______   ________  ________  ___      ___ _______   ___ )" << "\n";
@@ -224,6 +210,8 @@ int main()
 
         cin >> menuSelection;
 
+        //SWITCH FOR THE MENU SELECTION
+
 		switch (menuSelection)
 		{
 		case 1:
@@ -250,7 +238,7 @@ int main()
 			
 				cout << "(1) Wolverines Story\n";
 				
-				cin >> setw(1) >> originSelection;
+				cin >> originSelection;
 
 			}
 
@@ -286,6 +274,7 @@ int main()
             /_/   \_\_| \_|____/  |____/ \___/|_|   |_|   |_____|_| \_\___|_| \_|\____|                   )";
 				cout << "\n\n";
                 
+                //CHECKS IF ACHIEVMENT HAS BEEN UNLOCKED
 
                 if (hasAchievement1 == false) {
 
@@ -328,14 +317,16 @@ int main()
 				std::this_thread::sleep_for(chrono::milliseconds(2000));
 				cout << " \n";
 
-				// Attacks
+				// Attacks select using the function
 
 				MoveSelect(0, opticBlastS, 1, telekenisisThrowS, 2, slashBarrageS);
 				cin >> mutantAttack1;
 
+                //GIVES ERROR WHEN USER DOES NOT SELECT WITHIN THE OPTIONS (1 and 3) AND IF THEY PUT IN AN CHARACTER
+
 				while (!IsWithinInteval(mutantAttack1, 1, 3))
 				{
-					//GIVES ERROR WHEN USER DOES NOT SELECT WITHIN THE OPTIONS (1 and 3) AND IF THEY PUT IN AN CHARACTER
+					
 					cin.clear();
 					cin.ignore(INT_MAX, '\n');
 
@@ -357,6 +348,8 @@ int main()
 					cout << " shoots a blast at the sentinels\n";
 					std::this_thread::sleep_for(chrono::milliseconds(2000));
 					cout << "\n";
+
+                    //Raw String Literals For ASCII ART
 
 					cout << R"(		            
           
@@ -843,7 +836,7 @@ int main()
 					std::this_thread::sleep_for(chrono::milliseconds(2500));
                     cout << "but instead he retaliates by throwing ";
                     ColourChange(wolverine);
-                    cout << "back down to the ground!\n";
+                    cout << " back down to the ground!\n";
 					std::this_thread::sleep_for(chrono::milliseconds(2500));
 					cout << "\n";
 					cout << R"(
@@ -1627,6 +1620,8 @@ int main()
 
 				PlaySound(TEXT("dramaticMusic.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
+                //Attacks with Special Chance select using the function
+
 				MoveSelectSC(2, slashBombardmentS, slashBombardment, 3, teleportStrikeS, teleportStrike, 3, swordStrikeS, swordStrike);
 				cin >> mutantAttack4;
 
@@ -1902,6 +1897,8 @@ int main()
 					cout << "\n\n";
 
                     std::this_thread::sleep_for(chrono::milliseconds(2000));
+
+                    //Adds random chance to see if the player got the super chance.
 
 					if (RandomNumber(4) == 1)
 					{
@@ -2533,7 +2530,6 @@ int main()
 					}
 					else if (RandomNumber(chance) != 1)
 					{
-
 
 						cout << "You Didnt Get The Super Chance!\n";
 						cout << "\n";

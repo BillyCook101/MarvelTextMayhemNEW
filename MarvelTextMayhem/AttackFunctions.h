@@ -26,7 +26,7 @@ struct SpecialChances
 
 };
 
-//SUPERCHANCE Function which outputs the 
+//SUPERCHANCE Function which outputs the Special Chance depending on what random number gets picked
 
 void SpecialChance(int chosenAttack)
 {
@@ -116,10 +116,14 @@ void SpecialChance(int chosenAttack)
 
 };
 
+//FUNCTION OUTPUTS A MOVE SELECT WITHOUT THE SPECIAL CHANCE FEATURE
+
 void MoveSelect(int name1, std::string attack1s,int name2, std::string attack2s, int name3, std::string attack3s)
 {
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 	CharacterData charData;
+
+	//ALL CHARACTER DATA FROM CHARACTER DATA HEADER FILE
 
 	//PLAYERS
 
@@ -225,10 +229,14 @@ void MoveSelect(int name1, std::string attack1s,int name2, std::string attack2s,
 
 }
 
+//FUNCTION FOR MOVE SELECT WITH SPECIAL CHANCE
+
 void MoveSelectSC(int name1, std::string attack1s, int attack1, int name2, std::string attack2s, int attack2, int name3, std::string attack3s, int attack3)
 {
 
 	CharacterData charData;
+
+	//ALL CHARACTER DATA FROM CHARACTER DATA HEADER FILE
 
 	//PLAYERS
 
